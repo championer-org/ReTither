@@ -1,4 +1,7 @@
 defmodule ReTitherWeb.IntegrationCase do
+  @moduledoc """
+    integration case module
+  """
   use ExUnit.CaseTemplate
 
   using do
@@ -7,5 +10,4 @@ defmodule ReTitherWeb.IntegrationCase do
       use PhoenixIntegration
     end
   end
-
 end
