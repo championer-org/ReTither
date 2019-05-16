@@ -10,6 +10,7 @@ or
 
 To start your Phoenix server:
 
+  * Change directory into the cloned repo: `cd ReTither`
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `cd assets && npm install` 
