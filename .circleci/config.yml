@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/elixir
-      - image: circle/node
+      - image: circleci/node
         environment:
           MIX_ENV: test
       - image: circleci/postgres:10.1-alpine
