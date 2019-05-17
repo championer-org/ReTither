@@ -2,22 +2,22 @@ version: 2
 jobs:
   build:
     docker:
-      - image:  circleci/elixir
-      environment:
-        MIX_ENV:  test
-      - image:  circleci/postgres:10.1-alpine 
-      environment:
-        POSTGRES_USER:  postgres
-        POSTGRES_DB:  re_tither_test
-        POSTGRES_PASSWORD:
+      - image: circleci/elixir
+        environment:
+          MIX_ENV: test
+      - image: circleci/postgres:10.1-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: re_tither_test
+          POSTGRES_PASSWORD:
 
-    working_directory:  ~/app
+    working_directory: ~/app
 
     steps:
       - checkout:
 
-      - run:  mix local.hex --force 
-      - run:  mix local.rebar --force
+      - run: mix local.hex --force
+      - run: mix local.rebar --force
 
       - restore_cache:
           keys:
@@ -28,10 +28,9 @@ jobs:
           keys:
             - v1-build-cache-{{ .Branch }}
             - v1-build-cache
-      - run:  mix do deps.get, compile
-
-      - save_cache: 
-          key:  v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
+      - run: mix do deps.get, compile
+      - save_cache:
+          key: v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
           paths: "deps"
       - save_cache:
           key: v1-build-cache-{{ .Branch }}
@@ -44,14 +43,14 @@ jobs:
             - v1-npm-cache-{{ .Branch }}-{{ checksum "assets/package-lock.json" }}
             - v1-npm-cache-{{ .Branch }}
             - v1-npm-cache
-      - run: 
+      - run:
           working_directory: assets
           command: npm install
       - save_cache:
           key: v1-npm-cache-{{ .Branch }}-{{ checksum "assets/package-lock.json" }}
-          paths: assets/node_modules 
-      - save_cache: 
-          key:  v1-npm-cache-{{ .Branch }}
+          paths: assets/node_modules
+      - save_cache:
+          key: v1-npm-cache-{{ .Branch }}
           paths: assets/node_modules
       - save_cache:
           key: v1-npm-cache
@@ -61,8 +60,6 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
-      - run: mix ecto.create && mix ecto.migrate    
+      - run: mix ecto.create && mix ecto.migrate
       - run: mix check_lints
-      - run:  mix test
-
-
+      - run: mix test
