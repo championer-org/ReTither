@@ -2,8 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/elixir
-      - image: circleci/node
+      - image: circleci/elixir    
         environment:
           MIX_ENV: test
       - image: circleci/postgres:10.1-alpine
@@ -39,23 +38,6 @@ jobs:
       - save_cache:
           key: v1-build-cache
           paths: "_build"
-      - restore_cache:
-          keys:
-            - v1-npm-cache-{{ .Branch }}-{{ checksum "assets/package-lock.json" }}
-            - v1-npm-cache-{{ .Branch }}
-            - v1-npm-cache
-      - run:
-          working_directory: assets
-          command: npm install
-      - save_cache:
-          key: v1-npm-cache-{{ .Branch }}-{{ checksum "assets/package-lock.json" }}
-          paths: assets/node_modules
-      - save_cache:
-          key: v1-npm-cache-{{ .Branch }}
-          paths: assets/node_modules
-      - save_cache:
-          key: v1-npm-cache
-          paths: assets/node_modules
 
       - run:
           name: Wait for DB
