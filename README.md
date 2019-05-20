@@ -26,13 +26,16 @@ Create a remote repo with name upstream, i.e
 
 ```git remote add upstream git@github.com:championer-org/ReTither.git```
 
-Before working on issue ensure your local repo is up-to-date by running
+Before working on an issue, ensure your local repo is up-to-date, by running:
 
-```git pull upstream develop```
+```
+git checkout develop
+git pull upstream develop
+```
 
-When creating a branch ensure it has an issue number
+When creating a branch, ensure it has an issue number.
 
-For example issue #3 create user should be have branch name
+For example, issue `#3 update contribution readme` should be in the branch name:
 
 `3-update-contribution-readme`
 
