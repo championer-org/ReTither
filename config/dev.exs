@@ -61,7 +61,8 @@ config :re_tither, ReTitherWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/re_tither_web/{live,views}/.*(ex)$",
-      ~r"lib/re_tither_web/templates/.*(eex)$"
+      ~r"lib/re_tither_web/templates/.*(eex)$",
+      ~r{lib/re_tither_web/live/.*(ex)$}
     ]
   ]
 
