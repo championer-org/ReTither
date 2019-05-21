@@ -15,7 +15,10 @@ config :re_tither, ReTitherWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "amaazeuna5G1bSJ8sN1ZDBzLlYNEwMjUjiIEx2rLLJanJ4Ii3Qy/4/Dn4dkkqTwF",
   render_errors: [view: ReTitherWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ReTither.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: ReTither.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "vYNkCns3cOxjoS2UrTS4a6YIlmaa/SJq"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
