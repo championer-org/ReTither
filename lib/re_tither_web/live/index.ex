@@ -1,4 +1,7 @@
 defmodule ReTitherWeb.UserLive.Index do
+  @moduledoc """
+     List all Users LiveView Module
+  """
   use Phoenix.LiveView
 
   alias ReTither.Accounts
@@ -17,6 +20,6 @@ defmodule ReTitherWeb.UserLive.Index do
   def handle_event("delete_user", id, socket) do
     user = Accounts.get_user!(id)
     {:ok, _user} = Accounts.delete_user(user)
-    {:noreply, fetch(socket) }
+    {:noreply, fetch(socket)}
   end
 end

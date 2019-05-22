@@ -1,4 +1,7 @@
 defmodule ReTither.Accounts.User do
+  @moduledoc """
+  User Schema
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

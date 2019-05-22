@@ -1,4 +1,7 @@
 defmodule ReTither.Accounts do
+  @moduledoc """
+  Accounts context
+  """
   alias ReTither.Accounts.User
   alias ReTither.Repo
 
@@ -22,11 +25,9 @@ defmodule ReTither.Accounts do
     |> Repo.update()
   end
 
-
   def get_user!(id), do: Repo.get!(User, id)
 
   def delete_user(%User{} = user) do
     Repo.delete(user)
   end
-
 end

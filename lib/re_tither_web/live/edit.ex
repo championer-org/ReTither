@@ -1,10 +1,13 @@
 defmodule ReTitherWeb.UserLive.Edit do
+  @moduledoc """
+     Edit User LiveView Module
+  """
   use Phoenix.LiveView
 
+  alias ReTither.Accounts
+  alias ReTitherWeb.Router.Helpers, as: Routes
   alias ReTitherWeb.UserLive
   alias ReTitherWeb.UserView
-  alias ReTitherWeb.Router.Helpers, as: Routes
-  alias ReTither.Accounts
 
   def mount(%{path_params: %{"id" => id}}, socket) do
     user = Accounts.get_user!(id)

@@ -1,10 +1,14 @@
 defmodule ReTitherWeb.UserLive.New do
+  @moduledoc """
+     New User LiveView Module
+  """
   use Phoenix.LiveView
-  alias ReTitherWeb.UserLive
-  alias ReTitherWeb.UserView
-  alias ReTitherWeb.Router.Helpers, as: Routes
+
   alias ReTither.Accounts
   alias ReTither.Accounts.User
+  alias ReTitherWeb.Router.Helpers, as: Routes
+  alias ReTitherWeb.UserLive
+  alias ReTitherWeb.UserView
 
   def mount(_session, socket) do
     {:ok,

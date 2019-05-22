@@ -1,10 +1,13 @@
 defmodule ReTitherWeb.UserLive.Show do
+  @moduledoc """
+     Show User LiveView Module
+  """
   use Phoenix.LiveView
   use Phoenix.HTML
 
-  alias ReTitherWeb.UserView
-  alias ReTither.Accounts
   alias Phoenix.LiveView.Socket
+  alias ReTither.Accounts
+  alias ReTitherWeb.UserView
 
   def render(assigns), do: UserView.render("show.html", assigns)
 
