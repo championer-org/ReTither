@@ -1,5 +1,6 @@
 defmodule ReTitherWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :re_tither
+  socket "/live", Phoenix.LiveView.Socket
 
   socket "/socket", ReTitherWeb.UserSocket,
     websocket: true,
