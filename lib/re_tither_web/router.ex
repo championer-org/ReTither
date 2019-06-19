@@ -18,6 +18,10 @@ defmodule ReTitherWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/users/new", UserLive.New
+    live "/user/index", UserLive.Index
+    live "/users/:id", UserLive.Show
+    live "/users/:id/edit", UserLive.Edit
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,5 @@
+<h2 phx-click="here">Create Your Account</h2>
+
+<%= render "form.html", assigns %>
+
+<span><%= link "All User", to: Routes.live_path(@socket, UserLive.Index) %></span>
